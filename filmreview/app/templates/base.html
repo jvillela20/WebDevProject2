@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlockBuster Film Review</title>
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="row">
+        <div class="social-link">
+            <p>Follow us: </p>
+            <!-- DB: SocialLink -->
+            {% for link in social_links %}
+                <a href="{{ link.url }}" class="{{ link.anchor_class }}">
+                    <i class="{{ link.icon_class }}"></i>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</header>
+
+<!-- SLIDER SECTION -->
+{% block slider %}
+    {% include 'slider.html' %}
+{% endblock %}
+
+<!-- MOVIE LISTING SECTION -->
+{% block movielist %}
+    {% include 'movielist.html' %}
+{% endblock %}
+
+<!-- TRAILERS SECTION -->
+{% block trailers %}
+    {% include 'trailers.html' %}
+{% endblock %}
+
+<!-- NEWS SECTION -->
+{% block news %}
+    {% include 'news.html' %}
+{% endblock %}
+
+<!-- FOOTER -->
+<footer>
+    <!-- TODO: add footer links and newsletter form here -->
+    {% block newsletter %}{% endblock %}
+</footer>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

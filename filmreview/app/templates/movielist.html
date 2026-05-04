@@ -1,0 +1,64 @@
+{% load static %}
+<!-- MOVIE LISTING -->
+<section class="movie-listing">
+    <div class="col-md-8">
+
+        <!-- IN THEATER -->
+        <div class="title-hd"><h2>In Theater</h2></div>
+        <!-- DB: MovieTheater -->
+        {% for movie in movies_theater %}
+        <div class="movie-item">
+            <a href="{{ movie.anchor_url }}">
+                <img src="{{ movie.img_src }}" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+            </a>
+            <span class="genre">{{ movie.movie_genre }}</span>
+            <h5>{{ movie.movie_title }}</h5>
+            <span class="rating">&#9733; {{ movie.lower_rating }}/{{ movie.upper_rating }}</span>
+        </div>
+        {% endfor %}
+
+        <!-- ON TV -->
+        <div class="title-hd"><h2>On TV</h2></div>
+        <!-- DB: MovieTV -->
+        {% for movie in movies_tv %}
+        <div class="movie-item">
+            <a href="{{ movie.anchor_url }}">
+                <img src="{{ movie.img_src }}" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
+            </a>
+            <span class="genre">{{ movie.movie_genre }}</span>
+            <h5>{{ movie.movie_title }}</h5>
+            <span class="rating">&#9733; {{ movie.lower_rating }}/{{ movie.upper_rating }}</span>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="col-md-4 sidebar">
+
+        <!-- DB: Advertisement (sidebar) -->
+        {% for ad in ads %}
+            {% if ad.section == 'sidebar' %}
+            <div class="ads">
+                <img src="{{ ad.img_src }}" width="{{ ad.img_width }}" height="{{ ad.img_height }}">
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- DB: Celebrity -->
+        <div class="celebrities">
+            <h4 class="sb-title">Spotlight Celebrities</h4>
+            {% for celeb in celebrities %}
+            <div class="celeb-item">
+                <a href="{{ celeb.anchor_url }}">
+                    <img src="{{ celeb.celebrity_url }}" width="{{ celeb.img_width }}" height="{{ celeb.img_height }}">
+                </a>
+                <div class="celeb-author">
+                    <h6><a href="{{ celeb.anchor_url }}">{{ celeb.celebrity_name }}</a></h6>
+                    <span>{{ celeb.celebrity_type }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>

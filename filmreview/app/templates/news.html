@@ -1,0 +1,63 @@
+{% load static %}
+<!-- NEWS -->
+<section class="news">
+    <div class="col-md-8">
+
+        <!-- DB: Advertisement (news area) -->
+        {% for ad in ads %}
+            {% if ad.section == 'news' %}
+            <div class="ads">
+                <img src="{{ ad.img_src }}" width="{{ ad.img_width }}" height="{{ ad.img_height }}">
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="title-hd"><h2>Latest news</h2></div>
+
+        <!-- DB: News (featured article) -->
+        {% for article in news_items %}
+            {% if forloop.first %}
+            <div class="blog-item-style-1">
+                <img src="{{ article.img_src }}" alt="{{ article.img_alt }}" width="{{ article.img_width }}" height="{{ article.img_height }}">
+                <div class="blog-it-infor">
+                    <h3><a href="#">{{ article.title }}</a></h3>
+                    <span class="time">{{ article.time }}</span>
+                    <p>{{ article.content }}</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- DB: News (more items) -->
+        <div class="more-items">
+            {% for article in news_items %}
+                {% if not forloop.first %}
+                <div class="more-it">
+                    <h6><a href="#">{{ article.title }}</a></h6>
+                    <span class="time">{{ article.time }}</span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <!-- DB: Tweet -->
+        <div class="tweet-box">
+            <h4>Tweet to us</h4>
+            {% for tweet in tweets %}
+            <p>{{ tweet.content }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- NEWSLETTER FORM -->
+    <div class="newsletter">
+        <form method="post" action="{% url 'newsletter' %}">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Enter your email">
+            <button type="submit">Subscribe now</button>
+        </form>
+    </div>
+</section>

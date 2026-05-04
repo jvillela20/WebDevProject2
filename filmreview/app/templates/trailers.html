@@ -1,0 +1,29 @@
+{% load static %}
+<!-- TRAILERS -->
+<section class="videos">
+    <div class="title-hd"><h2>In Theater</h2><a href="#">View All</a></div>
+
+    <!-- DB: Trailer (main video) -->
+    <div class="slider-for-2 video-ft">
+        {% for trailer in trailers %}
+        <div>
+            <iframe class="item-video" src="#" data-src="{{ trailer.trailer_URL }}"></iframe>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- DB: TrailerItem (thumbnails) -->
+    <div class="slider-nav-2 thumb-ft">
+        {% for item in trailer_items %}
+        <div class="item">
+            <div class="trailer-img">
+                <img src="{{ item.img_src }}" alt="{{ item.img_alt }}" width="{{ item.img_width }}" height="{{ item.img_height }}">
+            </div>
+            <div class="trailer-infor">
+                <p>{{ item.description }}</p>
+                <span>{{ item.duration }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

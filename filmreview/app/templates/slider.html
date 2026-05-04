@@ -1,0 +1,15 @@
+{% load static %}
+<!-- SLIDER -->
+<section class="slider">
+    <!-- DB: Slider -->
+    {% for slide in sliders %}
+    <div class="slide-item">
+        <a href="{{ slide.anchor_url }}">
+            <img src="{{ slide.image_src }}" width="{{ slide.image_width }}" height="{{ slide.image_height }}">
+        </a>
+        <span class="genre">{{ slide.movie_genre }}</span>
+        <h2>{{ slide.movie_title }}</h2>
+        <span class="rating">&#9733; {{ slide.lower_rating }}/{{ slide.upper_rating }}</span>
+    </div>
+    {% endfor %}
+</section>
