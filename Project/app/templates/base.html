@@ -9,6 +9,13 @@
 </head>
 <body>
 
+    {% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
 <!-- HEADER -->
 <header>
     <div class="row">
@@ -48,6 +55,48 @@
 <footer>
     <!-- TODO: add footer links and newsletter form here -->
     {% block newsletter %}{% endblock %}
+
+    <div class="footer-content row">
+        <div class="col-md-3">
+            <div class="footer-logo">
+                <span class="logo-b">B</span>
+                <div>
+                    <strong>BLOCK<br>BUSTER</strong><br>
+                    <small>Film Review</small>
+                </div>
+            </div>
+            <p>1201 W University Dr. <br>Edinburg, TX 78539</p>
+            <p>Call us: (+01) 956 665 3661</p>
+        </div>
+        <div class="col-md-3">
+            <h5>Resources</h5>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blockbuster</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Security</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h5>Newsletter</h5>
+            <p>Subscribe to our newsletter system now to get latest news from us.</p>
+            <form method="post" action="{% url 'newsletter' %}">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="Enter your email">
+                <button type="submit">SUBSCRIBE NOW &gt;</button>
+            </form>
+        </div>
+    </div>
 </footer>
 
 <script src="{% static 'js/jquery.min.js' %}"></script>
