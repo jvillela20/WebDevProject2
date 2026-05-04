@@ -80,3 +80,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Added this list to allow our local/codespace environment
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000',
+    'https://127.0.0.1:8000',
+]
