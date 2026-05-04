@@ -165,7 +165,7 @@
   "pk": 8,
   "fields": {
     "type": "theater",
-    "img_src": "V/static/images/uploads/mv-item8.jpg",
+    "img_src": "/static/images/uploads/mv-item8.jpg",
     "img_width": 140,
     "img_height": 200,
     "anchor_url": "#",
@@ -471,6 +471,147 @@
     "title": "Michael Shannon Frontrunner to play Cable in Deadpool 2",
     "content": "Sources confirm Michael Shannon is in talks for the role.",
     "time": "12 hours ago"
+  }
+}
+
+,
+{
+  "model": "app.advertisement",
+  "pk": 1,
+  "fields": {
+    "section": "sidebar",
+    "img_src": "/static/images/uploads/ads1.png",
+    "img_width": 336,
+    "img_height": 280
+  }
+},
+{
+  "model": "app.advertisement",
+  "pk": 2,
+  "fields": {
+    "section": "news",
+    "img_src": "/static/images/uploads/ads2.png",
+    "img_width": 728,
+    "img_height": 90
+  }
+},
+{
+  "model": "app.celebrity",
+  "pk": 1,
+  "fields": {
+    "anchor_url": "#",
+    "img_width": 60,
+    "img_height": 60,
+    "celebrity_url": "/static/images/uploads/ceblist1.jpg",
+    "celebrity_name": "Samuel N. Jack",
+    "celebrity_type": "ACTOR"
+  }
+},
+{
+  "model": "app.celebrity",
+  "pk": 2,
+  "fields": {
+    "anchor_url": "#",
+    "img_width": 60,
+    "img_height": 60,
+    "celebrity_url": "/static/images/uploads/ceblist2.jpg",
+    "celebrity_name": "Scarlett Johansson",
+    "celebrity_type": "ACTRESS"
+  }
+},
+{
+  "model": "app.celebrity",
+  "pk": 3,
+  "fields": {
+    "anchor_url": "#",
+    "img_width": 60,
+    "img_height": 60,
+    "celebrity_url": "/static/images/uploads/ceblist3.jpg",
+    "celebrity_name": "Leonardo DiCaprio",
+    "celebrity_type": "ACTOR"
+  }
+},
+{
+  "model": "app.trailer",
+  "pk": 1,
+  "fields": {
+    "trailer_URL": "https://www.youtube.com/embed/2LqzF5WauAw"
+  }
+},
+{
+  "model": "app.traileritem",
+  "pk": 1,
+  "fields": {
+    "img_src": "/static/images/uploads/vd-item1.jpg",
+    "img_alt": "Wonder Woman",
+    "img_width": 120,
+    "img_height": 70,
+    "description": "Wonder Woman - Official Trailer",
+    "duration": "2:30"
+  }
+},
+{
+  "model": "app.traileritem",
+  "pk": 2,
+  "fields": {
+    "img_src": "/static/images/uploads/vd-item2.jpg",
+    "img_alt": "Oblivion",
+    "img_width": 120,
+    "img_height": 70,
+    "description": "Oblivion: Official Teaser Trailer",
+    "duration": "2:37"
+  }
+},
+{
+  "model": "app.traileritem",
+  "pk": 3,
+  "fields": {
+    "img_src": "/static/images/uploads/vd-item3.jpg",
+    "img_alt": "Skull Island",
+    "img_width": 120,
+    "img_height": 70,
+    "description": "Exclusive Interview: Skull Island",
+    "duration": "2:44"
+  }
+},
+{
+  "model": "app.traileritem",
+  "pk": 4,
+  "fields": {
+    "img_src": "/static/images/uploads/vd-item4.jpg",
+    "img_alt": "Logan",
+    "img_width": 120,
+    "img_height": 70,
+    "description": "Logan: Director James Mangold Interview",
+    "duration": "2:43"
+  }
+},
+{
+  "model": "app.tweet",
+  "pk": 1,
+  "fields": {
+    "content": "Just watched Interstellar again \ud83c\udfac — still blown away by the visuals, the tension, and that mind-bending journey through space and time. A true masterpiece that never gets old. \u2b50 #MovieNight #SciFi"
+  }
+},
+{
+  "model": "app.tweet",
+  "pk": 2,
+  "fields": {
+    "content": "The Revenant is absolutely brutal and beautiful at the same time. DiCaprio fully deserved that Oscar. One of the most visually stunning films I have ever seen. \ud83c\udf32 #TheRevenant #Oscar"
+  }
+},
+{
+  "model": "app.news",
+  "pk": 3,
+  "fields": {
+    "section": "main",
+    "img_src": "/static/images/uploads/bloglist-it3.jpg",
+    "img_alt": "JT Leroy",
+    "img_width": 200,
+    "img_height": 150,
+    "title": "Laura Dern in talks to join Justin Kelly biopic JT Leroy",
+    "content": "Laura Dern is in early talks to join the cast of the upcoming biopic about the literary hoax.",
+    "time": "11 hours ago"
   }
 }
 ]
