@@ -1,63 +1,75 @@
 {% load static %}
-<!-- NEWS -->
-<section class="news">
-    <div class="col-md-8">
+<!-- LATEST NEWS -->
+<div class="latestnew full-width">
+    <div class="container">
+        <div style="display:flex;flex-direction:row;gap:60px;">
 
-        <!-- DB: Advertisement (news area) -->
-        {% for ad in ads %}
-            {% if ad.section == 'news' %}
-            <div class="ads">
-                <img src="{{ ad.img_src }}" width="{{ ad.img_width }}" height="{{ ad.img_height }}">
-            </div>
-            {% endif %}
-        {% endfor %}
+            <!-- LEFT: Ads + News -->
+            <div style="flex:1;min-width:0;">
 
-        <div class="title-hd"><h2>Latest news</h2></div>
+                <!-- DB: Advertisement news section -->
+                {% for ad in ads %}
+                    {% if ad.section == 'news' %}
+                    <div class="adsv2" style="margin-bottom:30px;">
+                        <p style="text-align:center;color:#abb7c4;font-size:11px;margin-bottom:5px;">- Advertisement -</p>
+                        <img src="{{ ad.img_src }}" alt="Advertisement" style="width:100%;">
+                    </div>
+                    {% endif %}
+                {% endfor %}
 
-        <!-- DB: News (featured article) -->
-        {% for article in news_items %}
-            {% if forloop.first %}
-            <div class="blog-item-style-1">
-                <img src="{{ article.img_src }}" alt="{{ article.img_alt }}" width="{{ article.img_width }}" height="{{ article.img_height }}">
-                <div class="blog-it-infor">
-                    <h3><a href="#">{{ article.title }}</a></h3>
-                    <span class="time">{{ article.time }}</span>
-                    <p>{{ article.content }}</p>
+                <div class="title-hd">
+                    <h2>Latest News</h2>
+                    <a href="#" class="viewall">See All Movie News <i class="fa fa-angle-right"></i></a>
+                </div>
+
+                <!-- DB: News featured article -->
+                <div class="tabs">
+                    <div class="tab-content active">
+                        {% for article in news_items %}
+                            {% if forloop.first %}
+                            <div class="blog-item-style-1">
+                                <img src="{{ article.img_src }}" alt="{{ article.img_alt }}">
+                                <div class="blog-it-infor">
+                                    <h3><a href="#">{{ article.title }}</a></h3>
+                                    <span class="time">{{ article.time }}</span>
+                                    <p>{{ article.content }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- DB: More news items -->
+                <div class="morenew" style="margin-top:30px;">
+                    <div class="title-hd-sm">
+                        <h4>More news on Blockbuster</h4>
+                        <a href="#">SEE ALL MOVIES NEWS <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    <div class="more-items">
+                        {% for article in news_items %}
+                            {% if not forloop.first %}
+                            <div class="more-it">
+                                <h6><a href="#">{{ article.title }}</a></h6>
+                                <span class="time">{{ article.time }}</span>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div><!-- end left col -->
+
+            <!-- RIGHT: Tweets -->
+            <div style="width:280px;flex-shrink:0;">
+                <div class="sb-it">
+                    <h4 class="sb-title" style="font-family:'Dosis',sans-serif;font-size:18px;color:#fff;font-weight:bold;text-transform:uppercase;margin-bottom:20px;padding-bottom:15px;border-bottom:1px solid #405266;">Tweet to us</h4>
+                    {% for tweet in tweets %}
+                    <p style="margin-bottom:20px;color:#abb7c4;font-size:14px;line-height:1.6;">{{ tweet.content }}</p>
+                    {% endfor %}
                 </div>
             </div>
-            {% endif %}
-        {% endfor %}
 
-        <!-- DB: News (more items) -->
-        <div class="more-items">
-            {% for article in news_items %}
-                {% if not forloop.first %}
-                <div class="more-it">
-                    <h6><a href="#">{{ article.title }}</a></h6>
-                    <span class="time">{{ article.time }}</span>
-                </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-    </div>
-
-    <div class="col-md-4">
-        <!-- DB: Tweet -->
-        <div class="tweet-box">
-            <h4>Tweet to us</h4>
-            {% for tweet in tweets %}
-            <p>{{ tweet.content }}</p>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- NEWSLETTER FORM -->
-    <div class="newsletter">
-        <form method="post" action="{% url 'newsletter' %}">
-            {% csrf_token %}
-            <input type="email" name="email" placeholder="Enter your email">
-            <button type="submit">Subscribe now</button>
-        </form>
-    </div>
-</section>
+        </div><!-- end flex row -->
+    </div><!-- end container -->
+</div>

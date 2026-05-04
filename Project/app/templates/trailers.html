@@ -1,29 +1,37 @@
 {% load static %}
 <!-- TRAILERS -->
-<section class="videos">
-    <div class="title-hd"><h2>In Theater</h2><a href="#">View All</a></div>
-
-    <!-- DB: Trailer (main video) -->
-    <div class="slider-for-2 video-ft">
-        {% for trailer in trailers %}
-        <div>
-            <iframe class="item-video" src="#" data-src="{{ trailer.trailer_URL }}"></iframe>
+<div class="trailers full-width">
+    <div class="container">
+        <div class="title-hd">
+            <h2>In Theater</h2>
+            <a href="#" class="viewall">View All <i class="fa fa-angle-right"></i></a>
         </div>
-        {% endfor %}
-    </div>
 
-    <!-- DB: TrailerItem (thumbnails) -->
-    <div class="slider-nav-2 thumb-ft">
-        {% for item in trailer_items %}
-        <div class="item">
-            <div class="trailer-img">
-                <img src="{{ item.img_src }}" alt="{{ item.img_alt }}" width="{{ item.img_width }}" height="{{ item.img_height }}">
+        <div class="videos">
+            <!-- DB: Trailer main video -->
+            <div class="video-ft">
+                {% for trailer in trailers %}
+                <iframe class="item-video" src="{{ trailer.trailer_URL }}" frameborder="0" allowfullscreen></iframe>
+                {% empty %}
+                <iframe class="item-video" src="https://www.youtube.com/embed/2LqzF5WauAw" frameborder="0" allowfullscreen></iframe>
+                {% endfor %}
             </div>
-            <div class="trailer-infor">
-                <p>{{ item.description }}</p>
-                <span>{{ item.duration }}</span>
+
+            <!-- DB: TrailerItem thumbnails -->
+            <div class="thumb-ft" style="overflow-y:auto;">
+                {% for item in trailer_items %}
+                <div style="display:flex;flex-direction:row;align-items:center;padding:10px 15px;cursor:pointer;border-bottom:1px solid #1a3a52;" {% if forloop.first %}class="slick-current"{% endif %}>
+                    <div class="trailer-img" style="flex-shrink:0;">
+                        <img src="{{ item.img_src }}" alt="{{ item.img_alt }}" width="{{ item.img_width }}" height="{{ item.img_height }}">
+                    </div>
+                    <div class="trailer-infor" style="margin-left:15px;">
+                        <p class="desc">{{ item.description }}</p>
+                        <p>{{ item.duration }}</p>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
+
     </div>
-</section>
+</div>

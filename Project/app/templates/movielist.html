@@ -1,64 +1,120 @@
 {% load static %}
 <!-- MOVIE LISTING -->
-<section class="movie-listing">
-    <div class="col-md-8">
+<div class="movie-items full-width">
+    <div class="container">
+        <div style="display:flex;flex-direction:row;gap:40px;">
 
-        <!-- IN THEATER -->
-        <div class="title-hd"><h2>In Theater</h2></div>
-        <!-- DB: MovieTheater -->
-        {% for movie in movies_theater %}
-        <div class="movie-item">
-            <a href="{{ movie.anchor_url }}">
-                <img src="{{ movie.img_src }}" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
-            </a>
-            <span class="genre">{{ movie.movie_genre }}</span>
-            <h5>{{ movie.movie_title }}</h5>
-            <span class="rating">&#9733; {{ movie.lower_rating }}/{{ movie.upper_rating }}</span>
-        </div>
-        {% endfor %}
+            <!-- LEFT: Movie listings -->
+            <div style="flex:1;min-width:0;">
 
-        <!-- ON TV -->
-        <div class="title-hd"><h2>On TV</h2></div>
-        <!-- DB: MovieTV -->
-        {% for movie in movies_tv %}
-        <div class="movie-item">
-            <a href="{{ movie.anchor_url }}">
-                <img src="{{ movie.img_src }}" width="{{ movie.img_width }}" height="{{ movie.img_height }}">
-            </a>
-            <span class="genre">{{ movie.movie_genre }}</span>
-            <h5>{{ movie.movie_title }}</h5>
-            <span class="rating">&#9733; {{ movie.lower_rating }}/{{ movie.upper_rating }}</span>
-        </div>
-        {% endfor %}
-
-    </div>
-
-    <div class="col-md-4 sidebar">
-
-        <!-- DB: Advertisement (sidebar) -->
-        {% for ad in ads %}
-            {% if ad.section == 'sidebar' %}
-            <div class="ads">
-                <img src="{{ ad.img_src }}" width="{{ ad.img_width }}" height="{{ ad.img_height }}">
-            </div>
-            {% endif %}
-        {% endfor %}
-
-        <!-- DB: Celebrity -->
-        <div class="celebrities">
-            <h4 class="sb-title">Spotlight Celebrities</h4>
-            {% for celeb in celebrities %}
-            <div class="celeb-item">
-                <a href="{{ celeb.anchor_url }}">
-                    <img src="{{ celeb.celebrity_url }}" width="{{ celeb.img_width }}" height="{{ celeb.img_height }}">
-                </a>
-                <div class="celeb-author">
-                    <h6><a href="{{ celeb.anchor_url }}">{{ celeb.celebrity_name }}</a></h6>
-                    <span>{{ celeb.celebrity_type }}</span>
+                <!-- IN THEATER -->
+                <div class="tabs">
+                    <div class="title-hd">
+                        <h2>In Theater</h2>
+                        <a href="#" class="viewall">View All <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    <ul class="tab-links">
+                        <li class="active"><a href="#">#Popular</a></li>
+                        <li><a href="#">#Coming Soon</a></li>
+                        <li><a href="#">#Top Rated</a></li>
+                        <li><a href="#">#Most Reviewed</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab active">
+                            <div style="display:flex;flex-direction:row;flex-wrap:wrap;margin-top:20px;gap:10px;">
+                                {% for movie in movies_theater %}
+                                <div class="movie-item-style-2 style-3">
+                                    <div class="mv-img">
+                                        <a href="{{ movie.anchor_url }}">
+                                            <img src="{{ movie.img_src }}" alt="{{ movie.movie_title }}">
+                                        </a>
+                                    </div>
+                                    <div class="mv-item-infor">
+                                        <h6><a href="{{ movie.anchor_url }}">{{ movie.movie_title }}</a></h6>
+                                        <p class="rate">
+                                            <i class="fa fa-star" style="color:#dcf836;font-size:10px;"></i>
+                                            <span>{{ movie.lower_rating }}/{{ movie.upper_rating }}</span>
+                                        </p>
+                                        <p style="font-size:11px;color:#dd003f;text-transform:uppercase;margin:0;">{{ movie.movie_genre }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
-        </div>
 
-    </div>
-</section>
+                <!-- ON TV -->
+                <div class="tabs" style="margin-top:50px;">
+                    <div class="title-hd">
+                        <h2>On TV</h2>
+                        <a href="#" class="viewall">View All <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    <ul class="tab-links">
+                        <li class="active"><a href="#">#Popular</a></li>
+                        <li><a href="#">#Coming Soon</a></li>
+                        <li><a href="#">#Top Rated</a></li>
+                        <li><a href="#">#Most Reviewed</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab active">
+                            <div style="display:flex;flex-direction:row;flex-wrap:wrap;margin-top:20px;gap:10px;">
+                                {% for movie in movies_tv %}
+                                <div class="movie-item-style-2 style-3">
+                                    <div class="mv-img">
+                                        <a href="{{ movie.anchor_url }}">
+                                            <img src="{{ movie.img_src }}" alt="{{ movie.movie_title }}">
+                                        </a>
+                                    </div>
+                                    <div class="mv-item-infor">
+                                        <h6><a href="{{ movie.anchor_url }}">{{ movie.movie_title }}</a></h6>
+                                        <p class="rate">
+                                            <i class="fa fa-star" style="color:#dcf836;font-size:10px;"></i>
+                                            <span>{{ movie.lower_rating }}/{{ movie.upper_rating }}</span>
+                                        </p>
+                                        <p style="font-size:11px;color:#dd003f;text-transform:uppercase;margin:0;">{{ movie.movie_genre }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end left col -->
+
+            <!-- RIGHT: Sidebar -->
+            <div class="sidebar" style="width:300px;flex-shrink:0;">
+
+                <!-- DB: Advertisement sidebar -->
+                {% for ad in ads %}
+                    {% if ad.section == 'sidebar' %}
+                    <div class="ads sb-it">
+                        <p style="text-align:center;color:#abb7c4;font-size:11px;margin-bottom:5px;">- Advertisement -</p>
+                        <img src="{{ ad.img_src }}" alt="Advertisement" style="width:100%;">
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- DB: Celebrity Spotlight -->
+                <div class="celebrities sb-it">
+                    <h4 class="sb-title">Spotlight Celebrities</h4>
+                    {% for celeb in celebrities %}
+                    <div class="celeb-item">
+                        <a href="{{ celeb.anchor_url }}">
+                            <img src="{{ celeb.celebrity_url }}" width="{{ celeb.img_width }}" height="{{ celeb.img_height }}" alt="{{ celeb.celebrity_name }}">
+                        </a>
+                        <div class="celeb-author">
+                            <h6><a href="{{ celeb.anchor_url }}">{{ celeb.celebrity_name }}</a></h6>
+                            <span>{{ celeb.celebrity_type }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <a href="#" class="btn">See All Celebrities <i class="fa fa-angle-right"></i></a>
+                </div>
+
+            </div><!-- end sidebar -->
+
+        </div><!-- end flex row -->
+    </div><!-- end container -->
+</div>
