@@ -236,6 +236,186 @@
   }
 },
 {
+  "model": "app.movietv",
+  "pk": 1,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it1.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "SCI-FI",
+    "movie_title": "OBLIVION",
+    "lower_rating": "6.8",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 2,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it2.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "ADVENTURE",
+    "movie_title": "INTO THE WILD",
+    "lower_rating": "7.5",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 3,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it3.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "THRILLER",
+    "movie_title": "MULHOLLAND DRIVE",
+    "lower_rating": "7.5",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 4,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it4.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "SCI-FI",
+    "movie_title": "BLADE RUNNER",
+    "lower_rating": "7.4",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 5,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it5.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "HORROR",
+    "movie_title": "THE FOREST",
+    "lower_rating": "6.4",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 6,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it6.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "ACTION",
+    "movie_title": "SKYFALL",
+    "lower_rating": "6.3",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 7,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it7.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "HORROR",
+    "movie_title": "IT",
+    "lower_rating": "5.4",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 8,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it8.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "SCI-FI",
+    "movie_title": "INCEPTION",
+    "lower_rating": "7.4",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 9,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it9.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "ADVENTURE",
+    "movie_title": "JURASSIC PARK",
+    "lower_rating": "8.0",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 10,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it10.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "FAMILY",
+    "movie_title": "HARRY POTTER",
+    "lower_rating": "8.0",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 11,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it11.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "ACTION",
+    "movie_title": "GUARDIANSOFTHEGALAXY",
+    "lower_rating": "9.0",
+    "upper_rating": "10"
+  }
+},
+{
+  "model": "app.movietv",
+  "pk": 12,
+  "fields": {
+    "type": "tv",
+    "img_src": "/static/images/uploads/mv-it12.jpg",
+    "img_width": 140,
+    "img_height": 200,
+    "anchor_url": "#",
+    "movie_genre": "CRIME",
+    "movie_title": "THE GODFATHER",
+    "lower_rating": "9.0",
+    "upper_rating": "10"
+  }
+},
+{
   "model": "app.sociallink",
   "pk": 1,
   "fields": {
@@ -263,6 +443,34 @@
     "anchor_class": "yt",
     "icon_class": "fa fa-youtube",
     "url": "#"
+  }
+},
+{
+  "model": "app.news",
+  "pk": 1,
+  "fields": {
+    "section": "main",
+    "img_src": "/static/images/uploads/blog-it1.jpg",
+    "img_alt": "Brie Larson",
+    "img_width": 200,
+    "img_height": 150,
+    "title": "Brie Larson to play first female white house candidate in Amazon film.",
+    "content": "Exclusive: Amazon Studios has acquired Victoria Woodhull, with Oscar winning Room star Brie Larson poised to produce and play the first female candidate for the presidency of the United States.",
+    "time": "13 hours ago"
+  }
+},
+{
+  "model": "app.news",
+  "pk": 2,
+  "fields": {
+    "section": "main",
+    "img_src": "/static/images/uploads/bloglist-it2.jpg",
+    "img_alt": "Deadpool",
+    "img_width": 200,
+    "img_height": 150,
+    "title": "Michael Shannon Frontrunner to play Cable in Deadpool 2",
+    "content": "Sources confirm Michael Shannon is in talks for the role.",
+    "time": "12 hours ago"
   }
 }
 ]
